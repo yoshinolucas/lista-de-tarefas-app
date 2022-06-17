@@ -1,0 +1,40 @@
+
+<div class="container mt-4">
+  <div class="card">
+
+
+
+    <!--header-->
+      <div class="card-header">
+        My Tasks
+      </div>
+    
+    
+    
+    <!--table-->
+      <div class="table-responsive">
+        <table class="table mb-0">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let task of tasks">
+              <td>
+                {{task.name}}
+              </td>
+              <td>
+                <button class="btn btn-primary btn-sm">
+                  <i class="fa fa-edit">
+                  </i> Edit    
+                </button>          
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+
