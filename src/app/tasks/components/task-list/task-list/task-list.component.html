@@ -26,7 +26,8 @@
                 {{task.title}}
               </td>
               <td>
-                <button class="btn btn-primary btn-sm">
+                <button class="btn btn-primary btn-sm"
+                [routerLink]="['/tasks', task.id, 'edit']">
                   <i class="fa fa-edit">
                   </i> Edit    
                 </button>          

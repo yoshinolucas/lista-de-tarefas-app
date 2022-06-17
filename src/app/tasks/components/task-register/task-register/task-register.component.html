@@ -1,3 +1,61 @@
-<p>
-  task-register works!
-</p>
+<div class="card mt-4">
+  <!--header-->
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+  <div class="card-body">
+    <!--form-->
+    <form novalidate (ngSubmit)=saveTask() [formGroup]="taskForm">
+      <div class="form-group row">
+      <label class="col-md-2 col-form-label" for="title">Title</label>
+      <div class="col-md-5">
+        <input type="text" id="title" name="title" class="form-control"
+        placeholder="Insert task title"
+        formControlName="title">
+      </div>
+      </div>
+      <div class="form-group row mt-3">
+        <label class="col-md-2 col-form-label" for="details">Details</label>
+        <div class="col-md-5">
+        <textarea class="form-control" name="details" id="details" rows="3"
+          placeholder="Insert details"
+          formControlName="details">
+        </textarea>     
+        </div>
+      </div>
+         
+      
+      <!--options-->
+ 
+      <div class="form-group row mb-2">
+
+        <div class="offset-md-2 col-md-6">  
+          <button type="submit" class="btn btn-primary me-2 mt-2"
+            [title]="taskForm.valid ? 'Save' : 'Disable'"
+            [disabled]="!taskForm.valid">
+            Save
+          </button>
+          <button type="button" class="btn btn-outline-warning me-2 mt-2"
+            title="Cancel"
+            [routerLink]="['/tasks']">
+            Cancel
+          </button>
+          <button type="button" class="btn btn-danger mt-2"
+            *ngIf="pageTitle != 'Add Task'" 
+            title="Delete this task" 
+            (click)="deleteTask()">
+            Delete
+          </button>
+        </div>
+      </div>
+
+    </form>
+    
+  </div>
+  
+</div>
+
+<!--alert/error-->
+<div class="alert alert-danger" *ngIf="errorMsg">
+  {{errorMsg}}
+</div>
